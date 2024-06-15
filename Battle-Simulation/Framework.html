@@ -5,35 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<!-- Ek moes console gebruik want \n werk nie as daar html in is nie en ook vir die knoppie -->
 <body>
+    1 Left Click<br>
+    2 Click Inspect<br>
+    3 Click Console<br>
     <button onclick = "RunGame()">Play</button>
     <script>
         function RunGame(){
             //variables
             userName = prompt("Enter Username:");
-            character = prompt('Enter (1 or less)Attacker or (2 or more)Defender:');
+            console.log("Hi " + userName)
+            character = prompt('Choose (1 or less)Attacker or (2 or more)Defender:');
             hp = 0
+            kick = 4
+            punch = 3
+            heal_a = 3
+            heal_d = 2
+            evade = 3
+            evading = false
+            block = 1
+            attackerChoices = [kick, punch, heal_a];
+            defenderChoices = [block, heal_d, evade];
 
             // if statements charachter choosing
-
+            
             if(character > 1){
                 console.log("You choose Defender")
+                hpA = 20
+                hpB = 15
+                console.log("Your HP is " + hpA)
+                while (hpA > 0){
+                    attackerChoice = attackerChoices[Math.floor(Math.random() * 3)];
+                    console.log("Attackers choice is " + attackerChoice)
+                    if (attackerChoice == kick){
+                        if (evading == true){
+                            console.log("The Attacker Tried to kick you but You, evaded he took " + evade + " damage")
+                            hpB = hpB - evade
+                            console.log("Your HP is " + hpA)
+                            console.log("His HP is " + hpB)
+                            evading = false
+                        }else{
+                            hpA = hpA - kick
+                            console.log("The Attacker Kicked you!\nYou took " + kick + " damage")
+                        }
+                    if (attackerChoice == punch){
+                        hpA = hpA - punch
+                        console.log("The Attacker Punched you!\nYou took " + punch + " damage")
+                    }
+                    if (attackerChoice == heal_a){
+                        if ((hpB + heal_a)>(15)){
+                            console.log("The Attacker healed himself fully!\nHis HP is " + hpB)
+                            overflowHP_a = (hpB + heal_a) - 15
+                            hpB = (hpB + heal_a) - overflowHP_A
+                        }else{
+                            hpB = hpB + heal_a
+                            console.log("The Attacker Healded himself!\nHis HP is " + hpB)
+                        }
+                    }
+                    console.log("Your HP is " + hpA)
+                    user_choice = prompt("Choose: \n1 Block\n2 Heal\n3 Evade")
+                    if (user_choice == 1){
+
+                    }
+                    if (user_choice == 2){
+                        if ((hpA + heal_d)>(20)){
+                            console.log("You healed yourself fully!\nYour Hp is now " + hpA)
+                            overflowHP_b = (hpA + heal_d) - 20
+                            hpB = (hpA + heal_a) - overflowHP_b
+                        }else{
+                            hpA = hpA + heal_d
+                            console.log("You healed yourself.\nYour Hp is now " + hpA)
+                        }
+                    }
+                    if (user_choice == 3){
+                        evading = True
+                    }
+
+                }
             }
+
             if(character < 2){
                 console.log("You choose Attacker")
-            }
-
-
-            if(character > 1){
-                hp = 20
-                console.log("Your HP is " + hp)
-            }
-            if(character < 2){
                 hp = 15
                 console.log("Your HP is " + hp)
+
             }
+
+        
         }
     </script>
-    
 </body>
 </html>
