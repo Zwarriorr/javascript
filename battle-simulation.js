@@ -1,0 +1,2 @@
+Name = prompt()
+Character = prompt()

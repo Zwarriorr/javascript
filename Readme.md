@@ -28,3 +28,6 @@ You are going to simulate a game with two characters in a battle. The goal is to
 - Calculate the damage based on the attacker’s weapon power and the defender’s shield power.
 - Apply the calculated damage to the defender and update their health.
 - Print out the results of the battle.
+
+
+### Kan ek html gebruik?
