@@ -1,2 +1,0 @@
-Name = prompt()
-Character = prompt()

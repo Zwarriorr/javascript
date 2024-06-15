@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick = "RunGame()">Play</button>
+    <script>
+        function RunGame(){
+            //variables
+            userName = prompt("Enter Username:");
+            character = prompt('Enter (1 or less)Attacker or (2 or more)Defender:');
+            hp = 0
+
+            // if statements charachter choosing
+
+            if(character > 1){
+                console.log("You choose Defender")
+            }
+            if(character < 2){
+                console.log("You choose Attacker")
+            }
+
+
+            if(character > 1){
+                hp = 20
+                console.log("Your HP is " + hp)
+            }
+            if(character < 2){
+                hp = 15
+                console.log("Your HP is " + hp)
+            }
+        }
+    </script>
+    
+</body>
+</html>
